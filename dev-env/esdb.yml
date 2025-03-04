@@ -1,0 +1,66 @@
+version: '3.5'
+
+services:
+
+  setup:
+    image: eventstore/es-gencert-cli:1.0.2
+    entrypoint: bash
+    user: "1000:1000"
+    command: >
+      -c "mkdir -p ./certs && cd /certs && es-gencert-cli create-ca && es-gencert-cli create-node -out ./node -ip-addresses 127.0.0.1 -dns-names localhost && find . -type f -print0 | xargs -0 chmod 666"
+    container_name: setup
+    volumes:
+    - eventstore-certs:/certs
+
+  eventstore:
+    image: local/eventstore
+    hostname: eventstore
+    container_name: eventstore
+    build:
+      context: ./backend/esdb
+    env_file:
+    - ./backend/esdb/vars.env
+    networks:
+    - dev-net
+    ports:
+    - 1112:1112
+    - 1113:1113
+    - 2112:2112
+    - 2113:2113
+    volumes:
+    - eventstore-data:/var/lib/eventstore-data
+    - eventstore-index:/var/lib/eventstore-index
+    - eventstore-logs:/var/log/eventstore
+    - eventstore-certs:/certs
+
+
+
+volumes:
+
+  eventstore-logs:
+    driver: local
+    driver_opts:
+      type: none
+      device: /volume/eventstore/logs
+      o: bind
+
+  eventstore-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /volume/eventstore/data
+      o: bind
+
+  eventstore-index:
+    driver: local
+    driver_opts:
+      type: none
+      device: /volume/eventstore/index
+      o: bind
+
+  eventstore-certs:
+    driver: local
+    driver_opts:
+      type: none
+      device: /volume/eventstore/certs
+      o: bind

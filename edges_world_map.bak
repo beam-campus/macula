@@ -1,0 +1,114 @@
+
+import * as d3 from 'd3';
+// import * as world_atlas from 'world-atlas';
+import * as topojson from 'topojson-client';
+
+// https://youtu.be/Qw6uAg3EO64
+const maps_url = 'https://unpkg.com/world-atlas@1/world/110m.json';
+const topojson_url = 'https://unpkg.com/topojson@3.0.2/dist/topojson.min.js';
+const world_atlas_tsv = 'https://unpkg.com/world-atlas@1.1.4/world/110m.tsv';
+
+
+let g = null;
+
+
+export const EdgesChanged = {
+  mounted() {
+    this.handleEvent("edges_changed", ({ edges }) => {
+      this.el.dataset.edges = JSON.stringify(edges);
+    });
+  },
+  updated() {
+    this.handleEvent("edges_changed", ({ edges }) => {
+      this.el.dataset.edges = JSON.stringify(edges);
+    });
+  }
+};
+
+
+export const TheMap = {
+  mounted() {
+    nodes = JSON.parse(this.el.dataset.edges);
+    const [svg, projection] = drawWorldMap(this.el, 1200, 600)
+    createPoints(svg, nodes, projection);
+  },
+  updated() {
+    nodes = JSON.parse(this.el.dataset.edges);
+    const [svg, projection] = drawWorldMap(this.el, 1200, 600)
+    createPoints(svg, nodes, projection);
+  }
+};
+
+
+function createPoints(a_svg, data, projection) {
+  a_svg.selectAll("circle")
+    .data(data)
+    .enter()
+    .append("circle")
+    .attr("r", 5)
+    .attr("cx", d => projection([d.lon, d.lat])[0])
+    .attr("cy", d => projection([d.lon, d.lat])[1])
+    .attr("fill", d => node_color(d))
+}
+
+let node_color = function (d) {
+  if (d.type == "source") {
+    return "red";
+  } else if (d.type == "target") {
+    return "blue";
+  } else {
+    return "orange";
+  }
+}
+
+function drawWorldMap(an_svg, width, height) {
+  let svg = d3.select(an_svg)
+    .attr("width", width)
+    .attr("height", height);
+  // g = svg.append("g")
+  // .attr("transform", d3.zoomTransform);
+  let projection = d3.geoNaturalEarth1();
+  let pathGenerator = d3.geoPath().projection(projection);
+
+  // svg
+  //   .call(d3.zoom().on("zoom", () => { 
+  //     g.attr("transform", d3.event.transform) 
+  //   }));
+
+  Promise
+    .all([
+      d3.tsv(world_atlas_tsv),
+      d3.json(maps_url)
+    ])
+    .then(
+      ([atlas_data, tj_data]) => {
+        const countryName = {};
+
+        atlas_data.reduce((acc, d) => {
+          acc[d.iso_n3] = d.name;
+          return acc;
+        }, countryName);
+        // Draw the initial map here if needed
+        const countries = topojson.feature(tj_data, tj_data.objects.countries);
+        svg
+          .attr("viewBox", "0 0 1000 500")
+          .selectAll("path")
+          .attr("fill", "transparent")
+          .data(countries.features)
+          .enter()
+          .append("path")
+          .attr("class", "map_country")
+          .attr("d", pathGenerator)
+          .attr("fill", "#a4aa4")
+          .attr("stroke", "#5ae")
+          .append("title")
+          .text(d => countryName[d.id]);
+      });
+
+  return [svg, projection];
+};
+
+
+
+
+

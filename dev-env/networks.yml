@@ -1,0 +1,17 @@
+
+
+networks:
+  dev-net:
+    name: dev-net
+    driver: bridge
+  # esdb-cluster:
+  #   name: eventstoredb.local
+  #   driver: bridge
+  #   ipam:
+  #     driver: default
+  #     config:
+  #       - subnet: 172.30.240.0/24
+  # monitor-net:
+  #   driver: bridge
+  # elastic:
+  #     driver: bridge    

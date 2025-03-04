@@ -1,0 +1,39 @@
+services:
+  esdb21:
+    image: local/eventstore
+    build:
+      context: ./backend/esdb-21
+    container_name: esdb21
+    hostname: eventstore
+    restart: always
+    environment:
+      EVENTSTORE_RUN_PROJECTIONS: "All"
+      EVENTSTORE_START_STANDARD_PROJECTIONS: "true"
+      EVENTSTORE_CLUSTER_SIZE: 1
+      EVENTSTORE_EXT_TCP_PORT: 1113
+      EVENTSTORE_INSECURE: "true"
+      EVENTSTORE_ENABLE_EXTERNAL_TCP: "true"
+      EVENTSTORE_ENABLE_ATOM_PUB_OVER_HTTP: "true"
+    networks:
+      - dev-net
+    ports:
+      - 1113:1113
+      - 2113:2113
+    volumes:
+      - eventstore-data:/var/lib/eventstore
+      - eventstore-log:/var/log/eventstore
+
+volumes:
+  eventstore-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /volume/eventstore/data
+      o: bind
+
+  eventstore-log:
+    driver: local
+    driver_opts:
+      type: none
+      device: /volume/eventstore/logs
+      o: bind

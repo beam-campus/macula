@@ -1,0 +1,26 @@
+version: '3.5'
+
+services:
+
+  redis:
+    image: local/redis
+    build:
+      context: ./backend/redis
+    env_file:
+      - ./backend/redis/.env
+    container_name: redis
+    hostname: redis
+    networks:
+      - dev-net
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/bitnami/redis/data
+
+volumes:
+  redis-data:
+    driver: local
+    driver_opts: 
+      type: none
+      device: /volume/redis/data
+      o: bind

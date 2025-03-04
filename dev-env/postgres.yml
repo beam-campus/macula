@@ -1,0 +1,25 @@
+
+services:
+
+  postgres:
+    image: local/postgres
+    build:
+      context: ./backend/postgresql
+    container_name: postgres
+    env_file:
+      - ./backend/postgresql/swai_app.env
+    networks:
+      - dev-net
+    ports:
+      - 5432:5432
+    volumes:
+      - postgresql-data:/var/lib/postgres/data
+
+volumes:
+
+  postgresql-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /volume/postgres/data
+      o: bind

@@ -1,0 +1,26 @@
+version: '3.5'
+
+services:
+
+  freeipa-srv:
+    image: local/freeipa-srv
+    build:
+      context: ./backend/freeipa
+    container_name: freeipa-srv
+    hostname: freeipa
+    networks:
+      - dev-net
+    env_file:
+      - ./backend/freeipa/.env
+    volumes:
+      - freeipa-data:/data
+
+
+volumes:
+
+  freeipa-data:
+    driver: local
+    driver_opts: 
+      type: none
+      device: /volume/freeipa/data
+      o: bind

@@ -1,0 +1,1 @@
+FROM memphisos/memphis-broker:latest

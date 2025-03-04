@@ -1,0 +1,49 @@
+Arguments: 
+  /home/rl/.asdf/installs/nodejs/21.2.0/bin/node /usr/local/bin/yarn add alpine.js
+
+PATH: 
+  /home/rl/.asdf/plugins/nodejs/shims:/home/rl/.asdf/installs/nodejs/21.2.0/bin:/home/rl/.fly/bin:/home/rl/.cache/rebar3/bin:/home/rl/.wasmer/bin:/home/rl/google-cloud-sdk/bin:/home/rl/.fly/bin:/home/rl/.cache/rebar3/bin:/home/rl/.wasmer/bin:/home/rl/.asdf/shims:/home/rl/.asdf/bin:/home/rl/google-cloud-sdk/bin:/home/rl/.nvm/versions/node/v16.9.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/rl/.dotnet:/usr/local/go/bin:/home/rl/.asdf/installs/dotnet-core/8.0.200:/home/rl/.local/share/JetBrains/Toolbox/scripts:/home/rl/.asdf/installs/dotnet-core/8.0.200:/usr/local/go/bin:/home/rl/.asdf/shims/node:/home/rl/.asdf/installs/dotnet-core/8.0.200:/home/rl/.asdf:/home/rl/.fzf/bin:/home/rl/.wasmer/globals/wapm_packages/.bin:/home/rl/.asdf/installs/dotnet-core/8.0.200:/usr/local/go/bin:/home/rl/.asdf/shims/node:/home/rl/.asdf/installs/dotnet-core/8.0.200:/home/rl/.asdf:/home/rl/.wasmer/globals/wapm_packages/.bin
+
+Yarn version: 
+  1.22.11
+
+Node version: 
+  21.2.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/alpine.js: Not found
+      at params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66992:18)
+      at self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140763:22)
+      at Request.emit (node:events:519:28)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141735:10)
+      at Request.emit (node:events:519:28)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141657:12)
+      at Object.onceWrapper (node:events:633:28)
+      at IncomingMessage.emit (node:events:531:35)
+      at endReadableNT (node:internal/streams/readable:1696:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+npm manifest: 
+  {
+      "dependencies": {
+        "phoenix": "^1.7.11",
+        "phoenix_html": "^4.1.1",
+        "phoenix_live_view": "^0.20.14"
+      },
+      "scripts": {
+        "deploy": "esbuild --bundle --minify --sourcemap --outdir=priv/static/js --target=es2015 --define:process.env.NODE_ENV=\"production\" js/app.js",
+        "deploy:watch": "esbuild --bundle --sourcemap --outdir=priv/static/js --target=es2015 --define:process.env.NODE_ENV=\"production\" --watch js/app.js",
+        "start": "esbuild --bundle --sourcemap --outdir=priv/static/js --target=es2015 --define:process.env.NODE_ENV=\"development\"--watch js/app.js",
+        "watch": "esbuild --bundle --sourcemap --outdir=priv/static/js --target=es2015 --define:process.env.NODE_ENV=\"development\" --watch js/app.js"
+      }
+    
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

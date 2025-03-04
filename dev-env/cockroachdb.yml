@@ -1,0 +1,28 @@
+version: '3.5'
+
+services:
+
+ crdb:
+   image: local/crdb
+   container_name: crdb
+   hostname: crdb
+   build:
+     context: ./backend/cockroachdb
+   ports:
+     - "26257:26257"
+     - "8080:8080"
+   command: start-single-node --insecure
+   env_file:
+     - ./backend/cockroachdb/.env
+   volumes:
+     - cockroach-data:/cockroach/cockroach-data
+
+
+volumes:
+
+  cockroach-data:
+    driver: local
+    driver_opts: 
+      type: none
+      device: /volume/crdb/data
+      o: bind

@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@primer/octicons": "^19.10.0",
+    "alpinejs": "^3.14.7",
+    "d3": "^7.9.0",
+    "d3-hexbin": "^0.2.2",
+    "topojson-client": "^3.1.0",
+    "topojson-server": "^3.0.1"
+  }
+}

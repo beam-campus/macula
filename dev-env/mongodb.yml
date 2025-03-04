@@ -1,0 +1,29 @@
+version: '3.5'
+
+services:
+
+  mongo:
+    image: local/mongodb
+    restart: on-failure
+    networks:
+      - dev-net
+    build:
+      context: ./backend/mongodb
+    env_file:
+      - ./backend/mongodb/.env
+    pull_policy: always    
+    container_name: mongo
+    hostname: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo-data:/bitnami/mongodb
+    
+
+volumes:
+  mongo-data:
+    driver: local
+    driver_opts: 
+      type: none
+      device: /volume/mongodb/data
+      o: bind

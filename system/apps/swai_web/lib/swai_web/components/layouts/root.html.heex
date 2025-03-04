@@ -1,0 +1,136 @@
+<!DOCTYPE html> <%!-- <html lang="en" class="[scrollbar-gutter:stable]"> --%>
+<html lang="en">
+  <head>
+    <!-- Google Adsense -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3657151812171977"
+      crossorigin="anonymous"
+    >
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-W2T9NFJ2');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PZJ71LQ4GN">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PZJ71LQ4GN');
+    </script>
+    <!-- end Google tag (gtag.js) -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="csrf-token" content={get_csrf_token()} />
+    <.live_title suffix=" · SI Research">
+      <%= assigns[:page_title] || "Swarm Wars" %>
+    </.live_title>
+
+    <%!-- Buy me a coffee widget --%>
+    <script
+      data-name="BMC-Widget"
+      data-cfasync="false"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+      data-id="beamologist"
+      data-description="Buy me a coffee!"
+      data-message="Hello and thank you for visiting. "
+      data-color="#00A1FE"
+      data-position="Right"
+      data-x_margin="18"
+      data-y_margin="18"
+    >
+    </script>
+
+    <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
+    <link rel="icon" type="image/x-icon" href={~p"/images/logo-img-only.png"} % />">
+    <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
+    </script>
+
+    <meta
+      name="description"
+      content="Swarm Warms is a platform for distributed AI research and development."
+    />
+    <meta
+      name="keywords"
+      content="stream, streams, Artificial Intelligence, mock data, 
+      events, data, facts, fake data,
+      simulated data, realistic data,
+      data streams, data stream, data stream exchange,
+      data stream marketplace, data stream market,
+      data stream trading, data stream trading platform,
+      data stream trading exchange, data stream trading market,
+      data stream trading marketplace, data stream trading platform,
+      data stream trading system, data stream trading network,
+      data stream trading network, data stream trading community,
+      data stream trading ecosystem, data stream trading environment,
+      decentralized data stream trading, distributed data stream trading,
+      beat big tech, beat big tech cloud providers, beat big tech cloud services,
+      beat big tech cloud computing, beat big tech cloud storage,
+      monetize idle compute resources, monetize your CPU,
+      artificial intelligence, machine learning, AI, ML,
+      Data Science, Data Scientist, Data Scientists, Data Science Community,
+      Data Science Ecosystem, Data Science Environment, Data Science Network,
+      Mesh Network, Mesh Community, Mesh Ecosystem, Mesh Environment,
+      Macula, Macula Network, Macula Community, Macula Ecosystem, Macula Environment,
+      Macula AI, Macula AI Network, Macula AI Community, Macula AI Ecosystem, Macula AI Environment,
+      Macula AI Platform, Macula AI System, Macula AI Network, Macula AI Community,
+      Macula AI Ecosystem, Macula AI Environment, Macula AI Platform, Macula AI System,
+      macula.io, macula.io Network, macula.io Community, macula.io Ecosystem, macula.io Environment,
+      macula.io Platform, macula.io System, macula.io Network, macula.io Community,
+      macula.io Ecosystem, macula.io Environment, macula.io Platform, macula.io System,
+      Mesh Computing, Mesh Computing Network, Mesh Computing Community,
+      Distributed Computing, Distributed Computing Network, Distributed Computing Community,
+      Distributed Computing Ecosystem, Distributed Computing Environment,
+      Distributed Computing Platform, Distributed Computing System,
+      Distributed Data Stream, Distributed Data Stream Network,      
+      Emulated Data, Emulated Data Streams, Emulated Data Stream Network,
+      Swarm AI, Swarm AI Network, Swarm AI Community, Swarm AI Ecosystem,
+      Swarm Intelligence, Distributed Swarm Intelligence, Distributed Swarm AI,
+      Autonomous AI, Autonomous AI Network, Autonomous AI Community,
+      Autonomous Systems, Autonomous Systems Network, Autonomous Systems Community,      
+      AI, Machine Learning, fact, swai, DisComCo,
+      Ant Colony Optimization, ACO, Particle Swarm Optimization, PSO, Machine Learning,
+      Machine Learning Community, Machine Learning Ecosystem, Machine Learning Environment,
+      Machine Learning Network, Machine Learning Platform, Machine Learning System,
+      Bee Colony Optimization, BCO, Bee Colony Optimization Network, Bee Colony Optimization Community,
+      Firefly Algorithm, Firefly Algorithm Network, Firefly Algorithm Community,
+      Genetic Algorithm, Genetic Algorithm Network, Genetic Algorithm Community,
+      Genetic Programming, Genetic Programming Network, Genetic Programming Community,
+      Genetic Algorithms, Genetic Algorithms Network, Genetic Algorithms Community,
+      Genetic Programming, Genetic Programming Network, Genetic Programming Community,
+      Evolutionary Algorithms, Evolutionary Algorithms Network, Evolutionary Algorithms Community,
+      Biology Inspired Algorithms, Biology Inspired Algorithms Network, Biology Inspired Algorithms Community,
+      Artificial Immune Systems, Artificial Immune Systems Network, Artificial Immune Systems Community,
+      Bacterial Foraging Optimization, Bacterial Foraging Optimization Network, Bacterial Foraging Optimization Community,
+      Artificial Bee Colony, Artificial Bee Colony Network, Artificial Bee Colony Community,
+      Artificial Fish Swarm, Artificial Fish Swarm Network, Artificial Fish Swarm Community,
+      Artificial Fish Swarm Algorithm, Artificial Fish Swarm Algorithm Network, Artificial Fish Swarm Algorithm Community,
+      Artificial Fish Swarm Optimization, Artificial Fish Swarm Optimization Network, Artificial Fish Swarm Optimization Community,
+      Artificial Fish Swarm Algorithm, Artificial Fish Swarm Algorithm Network, Artificial Fish Swarm Algorithm Community"
+    />
+  </head>
+
+  <body class="antialiased  bg-ltDark-dark" id="root_body">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-W2T9NFJ2"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      >
+      </iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <%= @inner_content %>
+  </body>
+</html>

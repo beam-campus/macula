@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+
+    
+  kib01:
+    image: local/kibana
+    build: 
+      context: ./backend/kibana
+    container_name: kib01
+    env_file: 
+      - ./backend/kibana/.env
+    ports:
+      - 5601:5601
+    networks:
+      - elastic
+    
+  
+

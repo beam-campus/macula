@@ -1,0 +1,40 @@
+<div class="flex flex-col h-screen overflow-hidden">
+
+  <%!-- HEADER   --%>
+  <div>
+  <.live_component 
+    class="sticky top-0 z-100"
+    id="header"
+    module={SwaiWeb.Layouts.OldHeader}
+    current_user={@current_user} 
+    page_title={@page_title}
+  />
+  </div>
+
+  
+  <%!-- MAIN CONTENT --%>
+  <main 
+  class="flex-grow pt-2 overflow-auto z-20" 
+  id="main-page">
+    <.flash_group flash={@flash} />
+    <%= @inner_content %>
+  </main>
+  
+  
+  
+
+
+  <div>
+  <%!-- FOOTER --%>
+  <.live_component 
+    class="z-100"
+    id="footer"
+    module={SwaiWeb.Layouts.OldFooter}
+  />
+  </div>
+
+ 
+</div>
+
+
+

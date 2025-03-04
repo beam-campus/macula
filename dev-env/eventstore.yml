@@ -1,0 +1,48 @@
+version: '3.5'
+
+services:
+
+  eventstore:
+    image: local/eventstore
+    hostname: eventstore
+    container_name: eventstore
+    build:
+      context: ./backend/eventstore
+    env_file:
+      - ./backend/eventstore/.env
+    networks:
+      - dev-net
+    ports:
+      - "2112:2112"
+      - "2113:2113"
+      - "1113:1113"
+      - "1112:1112"
+    volumes:
+      - eventstore-data:/var/lib/eventstore-data
+      - eventstore-index:/var/lib/eventstore-index
+      - eventstore-logs:/var/log/eventstore
+
+
+      
+volumes:
+
+  eventstore-logs:
+    driver: local
+    driver_opts: 
+      type: none
+      device: /volume/eventstore/logs
+      o: bind
+
+  eventstore-data:    
+    driver: local
+    driver_opts: 
+      type: none
+      device: /volume/eventstore/data
+      o: bind
+
+  eventstore-index:    
+    driver: local
+    driver_opts: 
+      type: none
+      device: /volume/eventstore/index
+      o: bind

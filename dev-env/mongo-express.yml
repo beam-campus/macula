@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+
+  mongo-express:
+    image: local/mongo-express
+    restart: always
+    networks:
+      - dev-net
+    build:
+      context: ./backend/mongo-express
+    env_file:
+      - ./backend/mongo-express/.env
+    ports:
+      - 8081:8081
+    container_name: mongo-express

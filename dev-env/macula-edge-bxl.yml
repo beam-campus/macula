@@ -1,0 +1,29 @@
+
+volumes:
+  macula-edge-bxl:
+    driver: local
+    driver_opts:
+      type: none
+      device: /volume/macula-edge-bxl
+      o: bind
+
+services:
+
+  macula-edge-bxl:
+    image: local/macula-edge:latest
+    container_name: macula-edge-bxl
+    hostname: macula-edge-bxl
+    restart: "no"
+    network_mode: "host"
+    environment:
+    - SWAI_EDGE_API_KEY=john-lennon-bxl-1234
+    - SWAI_EDGE_CITY=Brussels
+    - SWAI_EDGE_COUNTRY=Belgium
+    - SWAI_EDGE_LAT=50.8503
+    - SWAI_EDGE_LON=4.3517
+    - SWAI_EDGE_SCAPES_CAP=5
+    volumes:
+      - macula-edge-bxl:/system
+    depends_on:
+      - postgres
+      - esdb21

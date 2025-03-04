@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+
+  keycloak:
+    image: local/keycloak
+    container_name: keycloak
+    hostname: keycloak
+    build:
+      context: ./backend/keycloak
+    networks:
+      - dev-net
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./backend/keycloak/.env

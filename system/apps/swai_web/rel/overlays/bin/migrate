@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+
+cd -P -- "$(dirname -- "$0")"
+
+exec ./for_web eval SwaiWeb.Release.migrate
+
+

@@ -1,0 +1,37 @@
+version: '3.5'
+
+services:
+  
+  rabbitmq:
+    image: local/rabbitmq
+    container_name: rabbitmq
+    hostname: rabbitmq
+    build:
+      context: ./backend/rabbitmq
+    env_file:
+      - ./backend/rabbitmq/.env
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq/
+      - rabbitmq-logs:/var/log/rabbitmq
+    networks:
+      - dev-net
+
+volumes:
+  
+  rabbitmq-logs:
+    driver: local
+    driver_opts: 
+      type: none
+      device: /volume/rabbitmq/logs
+      o: bind
+
+  rabbitmq-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /volume/rabbitmq/data
+      o: bind
+

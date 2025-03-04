@@ -1,0 +1,34 @@
+version: '3.5'
+
+services:
+  spacedeck:
+    image: local/sd-open
+    build: 
+      context: ./backend/spacedeck
+    env_file:
+      - ./backend/spacedeck/.env
+    container_name: spacedeck
+    hostname: spacedeck
+    ports:
+      - "9666:9666"
+    networks:
+      - dev-net
+    volumes:
+      - spacedeck-storage:/app/storage
+      - spacedeck-db:/app/database
+
+
+volumes:
+  spacedeck-storage:
+    driver: local
+    driver_opts: 
+      type: none
+      device: /volume/spacedeck/storage
+      o: bind
+
+  spacedeck-db:
+    driver: local
+    driver_opts: 
+      type: none
+      device: /volume/spacedeck/db
+      o: bind

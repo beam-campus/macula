@@ -1,0 +1,44 @@
+[
+    "hive_1":{
+    "hive_id": "hive-5b0ce477-6d86-4176-a82a-3659340feeb8",
+    "hive_name": "scape_andy-arizona-4",
+    "hive_color": "yellow",
+    "particles_cap": "1000",
+    "hive_status": 1,
+    "edge_id": "host00-john-lennon",
+    "scape_id": "scape-5e1dffa9-22ee-497e-bbd8-8336affe065b",
+    "biotope_id": "b105f59e-42ce-4e85-833e-d123e36ce943",
+    "hive_no": 4,
+    "license_id": null,
+    "user_id": null,
+    "user_alias": "Rafa",
+    "hive_image": "https://api.dicebear.com/8.x/bottts/svg?seed=Rafa",
+    "scape_name": "scape_andy-arizona",
+    "hexa": {
+        "q": 13,
+        "r": 51
+    },
+    "license": null
+    },
+    "hive_2":{
+    "hive_id": "hive-5b0ce477-6d86-4176-a82a-3659340feeb8",
+    "hive_name": "scape_andy-arizona-4",
+    "hive_color": "yellow",
+    "particles_cap": "1000",
+    "hive_status": 1,
+    "edge_id": "host00-john-lennon",
+    "scape_id": "scape-5e1dffa9-22ee-497e-bbd8-8336affe065b",
+    "biotope_id": "b105f59e-42ce-4e85-833e-d123e36ce943",
+    "hive_no": 4,
+    "license_id": null,
+    "user_id": null,
+    "user_alias": "Rafa",
+    "hive_image": "https://api.dicebear.com/8.x/bottts/svg?seed=Rafa",
+    "scape_name": "scape_andy-arizona",
+    "hexa": {
+        "q": 120,
+        "r": 51
+    },
+    "license": null
+    }
+]

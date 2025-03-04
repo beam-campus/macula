@@ -1,0 +1,168 @@
+version: "3.5"
+
+
+networks:
+  
+  edge_net:
+    driver: bridge
+    name: edge_net
+
+
+services:
+
+  vpn_de:
+    image: ghcr.io/bubuntux/nordvpn
+    # image: ghcr.io/bubuntux/nordlynx
+    cap_add:
+      - NET_ADMIN               # Required
+      - NET_RAW                 # Required
+    environment:                # Review https://github.com/bubuntux/nordvpn#environment-variables
+      - TOKEN=$NORDVPN_TOKEN     # Required
+      - CONNECT=Germany
+      - TECHNOLOGY=NordLynx
+      - NETWORK=192.168.1.0/24  # So it can be accessed within the local network
+      - PRIVATE_KEY=$NETLYNX_PRIVATE_KEY
+    ports:
+      - 8082:8080
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=1  # Recomended if using ipv4 only
+
+
+  edge_de:
+    image: local/swai_edge
+    build:
+      context: "."
+      dockerfile: "for_edge.Dockerfile"
+    container_name: edge_de
+    network_mode: service:vpn_de
+    depends_on:
+      - vpn_de      
+    restart: always
+    environment:
+      - SWAI_EDGE_API_KEY=${SWAI_EDGE_API_KEY}
+
+  
+  vpn_be:
+    image: ghcr.io/bubuntux/nordvpn
+    # image: ghcr.io/bubuntux/nordlynx
+    cap_add:
+      - NET_ADMIN               # Required
+      - NET_RAW                 # Required
+    environment:                # Review https://github.com/bubuntux/nordvpn#environment-variables
+      - TOKEN=$NORDVPN_TOKEN     # Required
+      - CONNECT=Belgium
+      - TECHNOLOGY=NordLynx
+      - NETWORK=192.168.1.0/24  # So it can be accessed within the local network
+      - PRIVATE_KEY=$NETLYNX_PRIVATE_KEY
+    ports:
+      - 8080:8080
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=1  # Recomended if using ipv4 only
+
+
+  edge_be:
+    image: local/swai_edge
+    build:
+      context: "."
+      dockerfile: "for_edge.Dockerfile"
+    container_name: edge_be
+    network_mode: service:vpn_be
+    depends_on:
+      - vpn_be     
+    restart: always 
+    environment:
+      - SWAI_EDGE_API_KEY=${SWAI_EDGE_API_KEY}
+
+
+  vpn_fr:
+    image: ghcr.io/bubuntux/nordvpn
+    # image: ghcr.io/bubuntux/nordlynx
+    cap_add:
+      - NET_ADMIN               # Required
+      - NET_RAW                 # Required
+    environment:                # Review https://github.com/bubuntux/nordvpn#environment-variables
+      - TOKEN=$NORDVPN_TOKEN     # Required
+      - CONNECT=France
+      - TECHNOLOGY=NordLynx
+      - NETWORK=192.168.1.0/24  # So it can be accessed within the local network
+      - PRIVATE_KEY=$NETLYNX_PRIVATE_KEY
+    ports:
+      - 8081:8080
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=1  # Recomended if using ipv4 only
+
+  edge_fr:
+    image: local/swai_edge
+    build:
+      context: "."
+      dockerfile: "for_edge.Dockerfile"
+    container_name: edge_fr
+    network_mode: service:vpn_fr
+    depends_on:
+      - vpn_fr
+    restart: always
+    environment:
+      - SWAI_EDGE_API_KEY=${SWAI_EDGE_API_KEY}
+
+
+  vpn_uk:
+    image: ghcr.io/bubuntux/nordvpn
+    # image: ghcr.io/bubuntux/nordlynx
+    cap_add:
+      - NET_ADMIN               # Required
+      - NET_RAW                 # Required
+    environment:                # Review https://github.com/bubuntux/nordvpn#environment-variables
+      - TOKEN=$NORDVPN_TOKEN     # Required
+      - CONNECT=United_Kingdom
+      - TECHNOLOGY=NordLynx
+      - NETWORK=192.168.1.0/24  # So it can be accessed within the local network
+      - PRIVATE_KEY=$NETLYNX_PRIVATE_KEY
+    ports:
+      - 8083:8080
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=1  # Recomended if using ipv4 only
+
+  edge_uk:
+    image: local/swai_edge
+    build:
+      context: "."
+      dockerfile: "for_edge.Dockerfile"
+    container_name: edge_uk
+    network_mode: service:vpn_uk
+    depends_on:
+      - vpn_uk
+    restart: always
+    environment:
+      - SWAI_EDGE_API_KEY=${SWAI_EDGE_API_KEY}
+
+
+  vpn_it:
+    image: ghcr.io/bubuntux/nordvpn
+    # image: ghcr.io/bubuntux/nordlynx
+    cap_add:
+      - NET_ADMIN               # Required
+      - NET_RAW                 # Required
+    environment:                # Review https://github.com/bubuntux/nordvpn#environment-variables
+      - TOKEN=$NORDVPN_TOKEN     # Required
+      - CONNECT=Italy
+      - TECHNOLOGY=NordLynx
+      - NETWORK=192.168.1.0/24  # So it can be accessed within the local network
+      - PRIVATE_KEY=$NETLYNX_PRIVATE_KEY
+    ports:
+      - 8084:8080
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=1  # Recomended if using ipv4 only
+
+  edge_it:
+    image: local/swai_edge
+    build:
+      context: "."
+      dockerfile: "for_edge.Dockerfile"
+    container_name: edge_it
+    network_mode: service:vpn_it
+    depends_on:
+      - vpn_it
+    restart: always
+    environment:
+      - SWAI_EDGE_API_KEY=${SWAI_EDGE_API_KEY}
+

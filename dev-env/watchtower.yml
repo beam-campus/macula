@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+
+  watchtower-svc:
+    image: local/watchtower
+    build:
+      context: ./backend/watchtower
+    networks:
+      - dev-net
+    restart: always
+    container_name: watchtower
+    command: --interval 30
+    # environment:
+    #   DOCKER_HOST: "https://docker.io"
+    #   REPO_USER: "${LOGATRON_CID_USER}"
+    #   REPO_PASS: "${LOGATRON_CID_PWD}"
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
+
