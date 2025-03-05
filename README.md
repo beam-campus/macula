@@ -28,17 +28,28 @@ It is a radical departure from the current industry mindset of moving towards ce
     - [Hub Nodes](#hub-nodes)
     - [Macula Ring](#macula-ring)
 
-## CHALLENGES
+## CHALLENGES  
+
+It is important to understand that in order to build a truly decentralized and autonomous platform, the foundations of such a system must also be decentralized and autonomous, starting with power provisioning all the way up to the administration and governance of that system. 
+
+In practice, this means that platforms like _Macula_ must be built on top of a decentralized network of nodes, which must be able to communicate with each other, and that these nodes must be able to run workloads, which are themselves decentralized and autonomous.
 
 ### Energy
 
-### Networking
+Decentralization of power provisioning is not an unknown field. Solar, wind or even small hydro generators can be used to power the nodes of a decentralized network, but they all suffer from the same problems as large-scale solutions: energy storage.  
+Initiatives like [EnergyVision](https://energyvision.be), that offer investment-free consumer oriented solutions.
+
+### Infrastructure
+
+
 
 ### Security
 
-### Governance
-
 ### Workloads
+
+### Administration
+
+### Governance
 
 ## Architecture
 
