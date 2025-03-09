@@ -56,6 +56,20 @@ However, niche applications like educational labs, localized edge networks, or l
 
 ### Security
 
+Securing a decentralized network of untrusted devices presents several significant challenges. One primary issue is the lack of a central authority, which makes it difficult to enforce uniform security protocols across all devices. This decentralization can lead to vulnerabilities, as each device might have different levels of security, potentially allowing malicious actors to exploit weaker nodes. Additionally, the dynamic nature of these networks, where devices frequently join and leave, complicates the maintenance of secure connections and trust relationships. Data integrity and privacy are also at risk, as intercepted or tampered data can compromise the entire network's security.
+
+To imagine securing such networks, a multi-layered approach could be employed.
+
+First, implementing robust encryption standards for all data transmissions would help protect against interception.
+
+Second, using decentralized identity and authentication mechanisms, such as blockchain-based solutions, could verify the trustworthiness of devices before they join the network.
+
+Third, continuous monitoring and real-time threat detection systems could be integrated to quickly identify and isolate compromised devices.
+
+Finally, fostering a community-driven security model, where users and developers collaborate to share and implement security best practices, could enhance the overall resilience of the network against evolving threats.
+
+[Interesting work in this field is being done by Nova Labs](https://youtu.be/c1DMN_mmRoQ?si=Z9ngoDn3JdJdgqUY)
+
 ### Workloads
 
 ### Administration
@@ -66,7 +80,7 @@ However, niche applications like educational labs, localized edge networks, or l
 
 ## ARCHITECTURE
 
-_Macula_ is intended to run on a fractal topology network of tiny-node clusters, of single-board computers (SBC). The network is designed to be highly decentralized, with no central authority or control, and to be self-healing and self-organizing.
+_Macula_ is intended to run on a fractal topology network of tiny-node clusters, made of single-board computers (SBC). The network is designed to be highly decentralized, with no central authority or control, and to be self-healing and self-organizing.
 
 ### Edge Clusters
 
