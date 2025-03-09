@@ -64,10 +64,22 @@ However, niche applications like educational labs, localized edge networks, or l
 
 ### Commercial Mindsets
 
-## Architecture
+## ARCHITECTURE
 
-### Edge Nodes
+_Macula_ is intended to run on a fractal topology network of tiny-node clusters, of single-board computers (SBC). The network is designed to be highly decentralized, with no central authority or control, and to be self-healing and self-organizing.
 
-### Hub Nodes
+### Edge Clusters
+
+_Edge Nodes_ are the most basic unit of the network, and are responsible for running workloads, which should be hot-swappable and self-healing.
+
+### Hub Clusters
+
+_Hub Nodes_ provide local centralized services such as portals, dashboards, near-edge aggregation and -processing and are responsible for managing the edge nodes of their network.
 
 ### Macula Ring
+
+WebRTC is a technology that enables peer-to-peer communication between devices, and it is the foundation of _Macula Rings_. Commonly used for peer-to-peer video and audio calls, it could also used to build temporary peer-to-peer networks for sharing data, or online collaboration, without putting extra load on Edge- or Hub Clusters.
+
+## IDEAS
+
+- [BEAM stack (AI generated)](ideas/analysis/root-beam.md)
