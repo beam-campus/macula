@@ -6,11 +6,9 @@
 
 _Macula_ is Latin for "spot", referring to the nature of the kind of infrastructure this project is targeting: a decentralized and distributed mesh of tiny-node, low-cost, low-power clusters.
 
-Recent world events have shown once more that nothing is certain: decades-old alliances we took for granted seem to be prone to collapse at the drop of a hat and prove to be vulnerable to personal agendas of political and economic madmen.
+Since the current state of the Internet seems to manifest itself as a centralized, consolidated ecosystem of a limited number of hyper-scale platform providers, the so-called "Big Tech", it is easy to overlook that this is not the only possible formula that could be used to build meaningful and sustainable systems.
 
-This project aims at building a democratic, open-source and crowdsourced platform, outside of the influence of Big Tech and Big Politics, that is still capable of running meaningful workloads.
-
-It is a radical departure from the current industry mindset of moving towards centralized, big cloud platforms, which in essence comes down to giving up control over data to institutions and corporations we don't control or even trust.
+Indeed, one could argue that this centralized approach, mostly carried by extremely large & US-controlled corporations, is necessarily an optimal fit for other regions.
 
 ## OUTLINE
 
