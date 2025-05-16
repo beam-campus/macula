@@ -8,7 +8,7 @@ _Macula_ is Latin for "spot", referring to the nature of the kind of infrastruct
 
 Since the current state of the Internet seems to manifest itself as a centralized, consolidated ecosystem of a limited number of hyper-scale platform providers, the so-called "Big Tech", it is easy to overlook that this is not the only possible formula that could be used to build meaningful and sustainable systems.
 
-Indeed, one could argue that this centralized approach, mostly carried by extremely large & US-controlled corporations, is not necessarily an optimal fit for other regions.
+Indeed, one could argue that this centralized approach, mostly carried by large & US-controlled corporations, is not necessarily an optimal fit for other regions, like the EU. 
 
 ## OUTLINE
 
